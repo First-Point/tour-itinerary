@@ -1,0 +1,34 @@
+name: Deploy to WordPress.org
+
+# Runs when a version tag (1.2.3, no "v") is pushed. Needs the repository
+# secrets SVN_USERNAME and SVN_PASSWORD of the WordPress.org account that
+# owns the plugin. Plugin directory assets (banner, icon, screenshots) live
+# in .wordpress-org/.
+on:
+  push:
+    tags: ['[0-9]+.[0-9]+.[0-9]+']
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Tag matches plugin version
+        run: |
+          grep -q "Stable tag: $GITHUB_REF_NAME" readme.txt
+          grep -q "Version:           $GITHUB_REF_NAME" tour-itinerary.php
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: tour-itinerary

@@ -1,0 +1,82 @@
+// Front end and editor preview. Logical properties only, so right-to-left
+// languages lay out correctly. Colors follow the theme through currentColor.
+
+.wp-block-tour-itinerary-itinerary {
+	--tour-itinerary-line: color-mix(in srgb, currentcolor 25%, transparent);
+	--tour-itinerary-dot: currentcolor;
+
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.tour-itinerary__day + .tour-itinerary__day {
+		margin-block-start: 2em;
+	}
+
+	.tour-itinerary__day-title {
+		margin-block: 0 0.25em;
+	}
+
+	.tour-itinerary__day-description {
+		margin-block: 0 1em;
+	}
+
+	.tour-itinerary__stops {
+		border-inline-start: 2px solid var(--tour-itinerary-line);
+		margin-inline-start: 0.4em;
+	}
+
+	.tour-itinerary__stop {
+		display: grid;
+		grid-template-columns: minmax(4.5em, max-content) 1fr;
+		gap: 0 1em;
+		padding-block: 0.5em;
+		padding-inline-start: 1.25em;
+		position: relative;
+
+		&::before {
+			background: var(--tour-itinerary-dot);
+			block-size: 0.6em;
+			border-radius: 50%;
+			content: "";
+			inline-size: 0.6em;
+			inset-block-start: 1em;
+			inset-inline-start: calc(-0.3em - 1px);
+			position: absolute;
+		}
+	}
+
+	.tour-itinerary__time {
+		font-variant-numeric: tabular-nums;
+		font-weight: 600;
+	}
+
+	// Stops without a time use the whole row.
+	.tour-itinerary__body:first-child {
+		grid-column: 1 / -1;
+	}
+
+	.tour-itinerary__name {
+		display: block;
+		font-weight: 600;
+	}
+
+	.tour-itinerary__description {
+		margin-block: 0.25em 0;
+	}
+
+	.tour-itinerary__address {
+		display: block;
+		font-size: 0.875em;
+		opacity: 0.75;
+	}
+}
+
+@media (max-width: 480px) {
+
+	.wp-block-tour-itinerary-itinerary .tour-itinerary__stop {
+		grid-template-columns: 1fr;
+	}
+}

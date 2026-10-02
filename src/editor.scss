@@ -1,0 +1,78 @@
+// Editor-only form styles.
+
+.tour-itinerary-editor {
+	display: grid;
+	gap: 16px;
+}
+
+.tour-itinerary-editor__day {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	display: grid;
+	gap: 12px;
+	padding: 16px;
+}
+
+.tour-itinerary-editor__stop {
+	border-block-start: 1px solid #eee;
+	display: grid;
+	gap: 8px;
+	margin: 0;
+	padding: 12px 0 0;
+}
+
+.tour-itinerary-editor__legend {
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.tour-itinerary-editor__row {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: 8em 1fr;
+
+	&:has(> :only-child) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.tour-itinerary-editor__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.tour-itinerary-editor__image {
+	display: grid;
+	gap: 8px;
+	justify-items: start;
+
+	img {
+		block-size: auto;
+		max-inline-size: 100%;
+	}
+}
+
+.tour-itinerary-editor__hint,
+.tour-itinerary-editor__placeholder {
+	color: #757575;
+	font-size: 12px;
+}
+
+.tour-itinerary-editor__placeholder {
+	font-size: 13px;
+}
+
+.tour-itinerary-editor__json {
+	font-size: 11px;
+	max-block-size: 320px;
+	overflow: auto;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.tour-itinerary-editor__notice ul {
+	list-style: disc;
+	margin-inline-start: 1.5em;
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tour-itinerary/itinerary",
+  "version": "0.1.0",
+  "title": "Tour Itinerary",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "A day-by-day tour programme with stops and times. Adds schema.org TouristTrip structured data to the page.",
+  "keywords": ["itinerary", "tour", "trip", "programme", "schedule", "travel"],
+  "textdomain": "tour-itinerary",
+  "usesContext": ["postId", "postType"],
+  "attributes": {
+    "name": { "type": "string", "default": "" },
+    "description": { "type": "string", "default": "" },
+    "image": { "type": "string", "default": "" },
+    "providerName": { "type": "string", "default": "" },
+    "providerUrl": { "type": "string", "default": "" },
+    "price": { "type": "string", "default": "" },
+    "currency": { "type": "string", "default": "" },
+    "audience": { "type": "string", "default": "" },
+    "headingLevel": { "type": "number", "default": 3 },
+    "days": {
+      "type": "array",
+      "default": [
+        {
+          "name": "",
+          "description": "",
+          "stops": [{ "time": "", "name": "", "description": "", "address": "", "isPlace": false }]
+        }
+      ]
+    },
+    "schema": { "type": "object" }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "color": { "text": true, "background": true },
+    "spacing": { "margin": true, "padding": true },
+    "typography": { "fontSize": true, "lineHeight": true }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
