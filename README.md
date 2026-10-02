@@ -36,9 +36,9 @@ npm run lint:js && npm run lint:css
 npm run env start    # WordPress at http://localhost:8888 (admin / password), needs Docker
 ```
 
-`tourist-trip-schema` is linked from `../tourist-trip-schema` until it is
-published to npm. **Before the first release, replace the `file:`
-dependency with the npm version**, otherwise CI cannot install it.
+`tourist-trip-schema` comes from npm. To try an unreleased library change,
+temporarily install it from a local checkout (`npm install ../tourist-trip-schema`)
+and do not commit that.
 
 ## Release
 
