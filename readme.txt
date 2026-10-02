@@ -1,5 +1,5 @@
 === Tour Itinerary ===
-Contributors: yournexttours
+Contributors: firstpoint
 Tags: itinerary, tour, travel, schema, structured data
 Requires at least: 6.5
 Tested up to: 7.1
