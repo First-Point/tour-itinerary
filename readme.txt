@@ -31,6 +31,10 @@ The structured data is built with the open source [tourist-trip-schema](https://
 
 Tour Itinerary is made by [Your Next Tours](https://yournext.tours), a live audio guide system for tour groups.
 
+== Source code ==
+
+The JavaScript in `build/` is compiled. The human-readable source, build scripts and tests are public at https://github.com/First-Point/tour-itinerary (block code in `src/`). Build it with `npm install` and `npm run build`.
+
 == Installation ==
 
 1. Install the plugin from Plugins > Add New, or search for "Tour Itinerary" in the block inserter.
