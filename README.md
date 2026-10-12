@@ -54,4 +54,5 @@ access exists. Directory assets (icon, banner, screenshots) go into
 
 ## License
 
-GPL-2.0-or-later. Made by [Your Next Tours](https://yournext.tours).
+GPL-2.0-or-later. Made by [Your Next Tours](https://yournext.tours), built by
+[First Point](https://firstpoint.com.tr).
